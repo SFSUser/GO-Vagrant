@@ -1,0 +1,2 @@
+# GO-Vagrant
+Basic template
