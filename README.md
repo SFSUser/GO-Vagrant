@@ -1,107 +1,43 @@
-# Vagrant with golang environment
+# Welcome to Revel
 
-Simple golang development environment for Vagrant.
-
-## Overview
-
-This project aims to facilitate the use of ``golang`` avoiding Operative System dependence issues, in this way we can focus on our development rather than installation configuration issues. You should be note that it is a project aimed at beginner developer so you do not expect anything advanced.
-
-**Tools on the box**
-
-* [Ubuntu 14.04.3 LTS](http://releases.ubuntu.com/14.04/)
-* [Golang 1.9](https://golang.org/dl/)
-* [Vagrant](https://www.vagrantup.com/)
-* [My dot files configuration](https://github.com/iver/config)
-
-**About tools**
-
-> **Go**, also commonly referred to as golang, is a programming language developed at Google in 2007 by [Robert Griesemer](https://www.computerhope.com/people/robert_griesemer.htm), [Rob Pike](https://en.wikipedia.org/wiki/Rob_Pike), and [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson). Designed primarily for systems programming, it is a compiled, statically typed language in the tradition of C and C++, with garbage collection, various safety features and [CSP](https://en.wikipedia.org/wiki/Communicating_sequential_processes)-style [concurrent programming](https://en.wikipedia.org/wiki/Concurrent_programming) features added.
+A high-productivity web framework for the [Go language](http://www.golang.org/).
 
 
+### Start the web server:
 
-> **Vagrant** is computer software that creates and configures virtual [development environments](1). It can be seen as a higher-level [wrapper](2) around virtualization software such as [VirtualBox](3), [VMware](4), [KVM](5) and [Linux Containers](6) (LXC), and around configuration management software such as [Ansible](7), [Chef](8), [Salt](9), and [Puppet](10).
+   revel run myapp
 
-> Source: [Wikipedia](8)
-    
-[1]: https://en.wikipedia.org/wiki/Development_environment_(software_development_process)
-[2]: https://en.wikipedia.org/wiki/Wrapper_library
-[3]: https://en.wikipedia.org/wiki/VirtualBox
-[4]: https://en.wikipedia.org/wiki/VMware
-[5]: https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine
-[6]: https://en.wikipedia.org/wiki/Linux_Containers
-[7]: https://en.wikipedia.org/wiki/Ansible_(software)
-[8]: https://en.wikipedia.org/wiki/Chef_(software)
-[9]: https://en.wikipedia.org/wiki/Salt_(software)
-[10]: https://en.wikipedia.org/wiki/Puppet_(software)
-[11]: https://en.wikipedia.org/wiki/Vagrant_(software)
+### Go to http://localhost:9000/ and you'll see:
 
-**Table of Contents**
+    "It works"
 
-- [Requirements](#require)
-- [Quickstart](#quickstart)
-- [Entry on /etc/hosts](#entry)
-- [License](#license)
+## Code Layout
 
+The directory structure of a generated Revel application:
 
-## <a name="require">Requirements</a>
+    conf/             Configuration directory
+        app.conf      Main app configuration file
+        routes        Routes definition file
 
-1. You must have installed [Vagrant](http://www.vagrantup.com/downloads.html)
-2. And [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+    app/              App sources
+        init.go       Interceptor registration
+        controllers/  App controllers go here
+        views/        Templates directory
 
-## <a name="quickstart"></a>Quickstart
+    messages/         Message files
 
-First at all clone our vagrant repository:
+    public/           Public static assets
+        css/          CSS files
+        js/           Javascript files
+        images/       Image files
 
-``` bash
-$ git clone https://github.com/iver/vagrant_golang.git golang
-```
-
-After that you can run your vagrant machine:
-
-```
-$ cd golang/
-$ vagrant up --provision
-```
-
-Then the box will be downloaded for you.
-
-If you wish, you can learn more about it alter a [vagrant file](Vagrantfile) and its [configuration options](ConfigOptions).
-
-## <a name="entry"></a>Entry on /etc/hosts
-
-How to add an entry to your /etc/hosts file on the host system.
-
-You can use the [vagrant pluging hostupdater](Hostupdater):
-
-**You can install it with:**
-
-```
-$ vagrant plugin install vagrant-hostsupdater
-```
-
-You currently only need the hostname and a :private_network network with a fixed IP address.
-
-```
-  config.vm.network "private_network", ip: "10.2.2.205"
-  config.hostsupdater.aliases = ["vm.iver.mx", "gophers.iver.mx"]
-```
-
-This IP address and the hostname will be used for the entry in the /etc/hosts file.
-
-More information about it on [vagrant-hostupdater page](Hostupdater.)
-
-## <a name="license"></a>Copyright and license
-
-***
-
-Copyright (c) 2015 Iván Jaimes. See [LICENSE](LICENSE) for details.
-
-## Feedback
-
-Feedback is more than welcome; I probably got some things wrong so please tell me about it.
+    tests/            Test suites
 
 
-[Vagrant]: http://www.vagrantup.com/
-[Vagrantfile]: https://github.com/iver/vagrant_golang/blob/master/Vagrantfile
-[ConfigOptions]: http://docs.vagrantup.com/v2/vagrantfile/
-[Hostupdater]: https://github.com/cogitatio/vagrant-hostsupdater
+## Help
+
+* The [Getting Started with Revel](http://revel.github.io/tutorial/gettingstarted.html).
+* The [Revel guides](http://revel.github.io/manual/index.html).
+* The [Revel sample apps](http://revel.github.io/examples/index.html).
+* The [API documentation](https://godoc.org/github.com/revel/revel).
+
